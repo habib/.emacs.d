@@ -169,10 +169,6 @@
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
 
-(super-save-mode +1)
-(setq super-save-auto-save-when-idle t)
-(setq auto-save-default nil)
-
 (ido-mode 1)
 (ido-everywhere)
 (fido-mode)
@@ -185,4 +181,16 @@
 (setq sentence-end-double-space nil)
 (setq-default indent-tabs-mode nil)
 
+;;Autosave files section
+(make-directory "~/.tmp/emacs/auto-save/" t)
+(setq auto-save-file-name-transforms '((".*" "~/.tmp/emacs/auto-save/" t)))
+(setq backup-directory-alist '(("." . "~/.tmp/emacs/backup/")))
+(setq backup-by-copying t)
+(setq create-lockfiles nil)
+(super-save-mode +1)
+(setq super-save-auto-save-when-idle t)
+(setq auto-save-default nil)
+
+
 ;; https://dr-knz.net/a-tour-of-emacs-as-go-editor.html
+;; https://github.com/habib/emfy
