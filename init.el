@@ -162,7 +162,12 @@
 (setq compilation-scroll-output t)
 
 (add-hook 'go-mode-hook (lambda ()
-    (setq tab-width 4)))
+                          (setq tab-width 4)))
+
+(setq-default tab-width 4)
+(setq c-basic-offset 4)
+(setq js-indent-level 2)
+(setq css-indent-offset 2)
 
 (super-save-mode +1)
 (setq super-save-auto-save-when-idle t)
@@ -178,7 +183,6 @@
 (setq-default indicate-buffer-boundaries 'left)
 
 (setq sentence-end-double-space nil)
-
 (setq-default indent-tabs-mode nil)
 
 ;; https://dr-knz.net/a-tour-of-emacs-as-go-editor.html
