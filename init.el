@@ -3,6 +3,16 @@
   (scroll-bar-mode 0))
 (setq inhibit-startup-screen t)
 
+;; Dark theme.
+(load-theme 'wombat)
+(set-face-background 'default "#111")
+(set-face-background 'cursor "#c96")
+(set-face-background 'isearch "#c60")
+(set-face-foreground 'isearch "#eee")
+(set-face-background 'lazy-highlight "#960")
+(set-face-foreground 'lazy-highlight "#ccc")
+(set-face-foreground 'font-lock-comment-face "#fc0")
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
@@ -22,7 +32,7 @@
  ;; If there is more than one, they won't work right.
  '(cua-mode t)
  '(package-selected-packages
-   '(unicode-fonts super-save smartparens doneburn-theme dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
+   '(unicode-fonts super-save smartparens dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
  '(save-place-mode t)
  '(show-paren-mode t))
 (custom-set-faces
@@ -34,16 +44,17 @@
 
 (column-number-mode 1)
 
-(use-package doneburn-theme
-  :ensure t
-  :config (load-theme 'doneburn 'no-confirm))
+;; add doneburn-theme to package-selected-packages above if you want to use it
+;; (use-package doneburn-theme
+;;   :ensure t
+;;   :config (load-theme 'doneburn 'no-confirm))
 
 ; Set cursor color to red
-(set-cursor-color "#ff0000")
+;(set-cursor-color "#ff0000")
 
 (use-package hl-line
-  :custom-face
-  (hl-line ((t (:background "#ffffde")))))
+   :custom-face
+   (hl-line ((t (:background "#451010")))))
 (global-hl-line-mode 1)
 
 ;(require 'lsp-mode)
