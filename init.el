@@ -1,3 +1,8 @@
+(when (display-graphic-p)
+  (tool-bar-mode 0)
+  (scroll-bar-mode 0))
+(setq inhibit-startup-screen t)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
@@ -26,11 +31,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :extend nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Menlo")))))
-
-(when (display-graphic-p)
-  (tool-bar-mode 0)
-  (scroll-bar-mode 0))
-(setq inhibit-startup-screen t)
 
 (column-number-mode 1)
 
@@ -170,9 +170,15 @@
 
 (ido-mode 1)
 (ido-everywhere)
+(fido-mode)
 (setq ido-enable-flex-matching t)
 
 (setq-default show-trailing-whitespace t)
 (setq-default indicate-empty-lines t)
+(setq-default indicate-buffer-boundaries 'left)
+
+(setq sentence-end-double-space nil)
+
+(setq-default indent-tabs-mode nil)
 
 ;; https://dr-knz.net/a-tour-of-emacs-as-go-editor.html
