@@ -32,7 +32,7 @@
  ;; If there is more than one, they won't work right.
  '(cua-mode t)
  '(package-selected-packages
-   '(unicode-fonts super-save smartparens dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
+   '(unicode-fonts super-save smartparens golden-ratio dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
  '(save-place-mode t)
  '(show-paren-mode t))
 (custom-set-faces
@@ -55,6 +55,7 @@
 (use-package hl-line
    :custom-face
    (hl-line ((t (:background "#451010")))))
+;;Other colors that I like are #2b4247 
 (global-hl-line-mode 1)
 
 ;(require 'lsp-mode)
@@ -202,6 +203,8 @@
 (setq super-save-auto-save-when-idle t)
 (setq auto-save-default nil)
 
+(require 'golden-ratio)
+(golden-ratio-mode 1)
 
 ;; https://dr-knz.net/a-tour-of-emacs-as-go-editor.html
 ;; https://github.com/habib/emfy
