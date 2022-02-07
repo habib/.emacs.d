@@ -206,5 +206,11 @@
 (require 'golden-ratio)
 (golden-ratio-mode 1)
 
+;;ripgrep settings. Install ripgrep first
+(require 'grep)
+(grep-apply-setting 'grep-find-command
+                    '("rg -n -H --no-heading -e '' $(git rev-parse --show-toplevel || pwd)" . 27))
+(global-set-key (kbd "C-x C-g") 'grep-find)
+
 ;; https://dr-knz.net/a-tour-of-emacs-as-go-editor.html
 ;; https://github.com/habib/emfy
