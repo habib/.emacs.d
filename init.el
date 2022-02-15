@@ -34,7 +34,7 @@
  ;; If there is more than one, they won't work right.
  '(cua-mode t)
  '(package-selected-packages
-   '(unicode-fonts super-save smartparens golden-ratio dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
+   '(auto-dim-other-buffers unicode-fonts super-save smartparens golden-ratio dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
  '(save-place-mode t)
  '(show-paren-mode t))
 (custom-set-faces
@@ -42,7 +42,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :extend nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Menlo")))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :extend nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Menlo"))))
+ '(auto-dim-other-buffers-face ((t (:background "#132"))))
+ '(hl-line ((t (:background "#451010")))))
 
 (column-number-mode 1)
 
@@ -205,8 +207,14 @@
 (setq super-save-auto-save-when-idle t)
 (setq auto-save-default nil)
 
-(require 'golden-ratio)
-(golden-ratio-mode 1)
+;; Didn't quite like golden-ratio mode
+;;(require 'golden-ratio)
+;;(golden-ratio-mode 1)
+
+;; Auto dim inactive buffers
+(add-hook 'after-init-hook (lambda ()
+  (when (fboundp 'auto-dim-other-buffers-mode)
+    (auto-dim-other-buffers-mode t))))
 
 ;;ripgrep settings. Install ripgrep first
 (require 'grep)
