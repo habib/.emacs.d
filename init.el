@@ -32,9 +32,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cua-mode t)
+ '(cua-mode t nil (cua-base))
  '(package-selected-packages
-   '(auto-dim-other-buffers unicode-fonts super-save smartparens golden-ratio dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
+   '(projectile auto-dim-other-buffers unicode-fonts super-save smartparens golden-ratio dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
  '(save-place-mode t)
  '(show-paren-mode t))
 (custom-set-faces
@@ -221,6 +221,10 @@
 (grep-apply-setting 'grep-find-command
                     '("rg -n -H --no-heading -e '' $(git rev-parse --show-toplevel || pwd)" . 27))
 (global-set-key (kbd "C-x C-g") 'grep-find)
+
+;; Adding projectile mode
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 
 ;; https://dr-knz.net/a-tour-of-emacs-as-go-editor.html
 ;; https://github.com/habib/emfy
