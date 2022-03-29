@@ -34,7 +34,7 @@
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
  '(package-selected-packages
-   '(projectile auto-dim-other-buffers unicode-fonts super-save smartparens golden-ratio dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
+   '(yaml-mode projectile auto-dim-other-buffers unicode-fonts super-save smartparens golden-ratio dap-mode company-lsp company company-go lsp-ui yasnippet exec-path-from-shell go-mode))
  '(save-place-mode t)
  '(show-paren-mode t))
 (custom-set-faces
@@ -147,9 +147,7 @@
 ;;       helm-ff-file-name-history-use-recentf t
 ;;       helm-echo-input-in-header-line t)
 
-
-(defun custom-go-mode ()
-  (display-line-numbers-mode 1))
+(global-display-line-numbers-mode)
 
 (use-package go-mode
 :defer t
@@ -158,7 +156,6 @@
 :init
   (setq compile-command "echo Building... && go build -v && echo Testing... && go test -v && echo Linter... && golint")
   (setq compilation-read-command nil)
-  (add-hook 'go-mode-hook 'custom-go-mode)
 :bind (("M-," . compile)
 ("M-." . godef-jump)))
 
@@ -225,6 +222,11 @@
 ;; Adding projectile mode
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+
+;; Adding yaml mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
 
 ;; https://dr-knz.net/a-tour-of-emacs-as-go-editor.html
 ;; https://github.com/habib/emfy
